@@ -107,16 +107,16 @@ export default function Home() {
 
   return (
     <main className="relative bg-background overflow-hidden">
-      <Hero data={data} />
-      <About data={data} />
-      <Experience data={data} />
-      <Projects data={data} />
-      <Contact data={data} />
+      {data.hero && <Hero data={data} />}
+      {data.about && <About data={data} />}
+      {data.experience && data.experience.length > 0 && <Experience data={data} />}
+      {data.projects && data.projects.length > 0 && <Projects data={data} />}
+      {data.contact && <Contact data={data} />}
 
       {/* Footer */}
       <footer className="border-t border-primary/20 py-8 px-4 bg-card/30">
         <div className="max-w-6xl mx-auto text-center text-sm text-foreground/60">
-          <p>© 2024 {data.personal.name}. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {data.personal?.name || ''}. All rights reserved.</p>
         </div>
       </footer>
     </main>

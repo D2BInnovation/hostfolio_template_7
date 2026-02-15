@@ -23,6 +23,7 @@ interface HeroProps {
         link: string;
       };
     };
+    resume?: string;
   };
 }
 
@@ -109,6 +110,17 @@ export function Hero({ data }: HeroProps) {
                 {data.hero.secondaryButton.text}
               </Button>
             </a>
+            {(data.resume || (data.personal as any).resume) && (
+              <a href={data.resume || (data.personal as any).resume} target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-accent/50 hover:border-accent text-foreground bg-transparent"
+                >
+                  Resume
+                </Button>
+              </a>
+            )}
           </div>
 
           {/* Scroll indicator */}
