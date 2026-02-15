@@ -19,6 +19,7 @@ interface PortfolioData {
     linkedin: string;
     github: string;
     bio: string;
+    resume?: string;
   };
   hero: {
     greeting: string;
@@ -74,7 +75,7 @@ export default function Home() {
   useEffect(() => {
     // Use imported data directly for static export compatibility
     try {
-      setData(portfolioData);
+      setData(portfolioData as PortfolioData);
     } catch (error) {
       console.error('Failed to load portfolio data:', error);
     } finally {
